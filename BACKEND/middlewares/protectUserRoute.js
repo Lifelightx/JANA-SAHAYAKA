@@ -1,0 +1,32 @@
+const jwt = require("jsonwebtoken");
+const User = require("../models/User.js");
+
+const protectUserRoute = async (req, res, next) => {
+  try {
+    const token = req.header("Authorization").replace("Bearer ", ""); // Retrieve token from Authorization header
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized - No Token Provided" });
+    }
+
+    // Decode the token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    //  console.log(token)
+    if (!decoded) {
+      return res.status(401).json({ message: "Unauthorized - Invalid Token" });
+    }
+
+    const user = await User.findById(decoded.id).select("-password"); // User Authentication
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    req.user = user; // Attach the authenticated user to the request object
+    next(); // Proceed to the next middleware or route handler
+  } catch (error) {
+    console.log("Error in protectUserRoute middleware: ", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+module.exports = protectUserRoute;
