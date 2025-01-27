@@ -18,7 +18,7 @@ function LoginDepartment() {
     e.preventDefault();
 
     
-    axios.post("http://localhost:5000/api/departments/login", formData, {
+    axios.post("https://jana-sahayaka.onrender.com/api/departments/login", formData, {
       headers: {
         "Content-Type": "application/json",
       },

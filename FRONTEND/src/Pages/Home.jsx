@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MessageCircle } from 'lucide-react';
 import villageImage from "../assets/villageImg.jpg"
 import CardHome from '../components/CardHome';
@@ -11,16 +11,18 @@ import health from "../assets/health.jpg"
 import road from "../assets/road.jpg"
 import Category from '../components/Category';
 import axios from 'axios';
+import { StoreContext } from '../Context';
 function Home() {
   const [complaints, setComplaints] = useState(0)
   const [resolved, setResolved] = useState(0)
   const [pending, setPending] = useState(0)
+  const {url }= useContext(StoreContext)
   useEffect(()=>{
-    axios.get("http://localhost:5000/api/admin/noOfComplaints")
+    axios.get(`${url}/api/admin/noOfComplaints`)
     .then(res => setComplaints( res.data.totalComplaints))
-    axios.get("http://localhost:5000/api/admin/total-resolved")
+    axios.get(`${url}/api/admin/total-resolved`)
     .then(res => setResolved(res.data.totalResolved))
-    axios.get("http://localhost:5000/api/admin/total-in-progress")
+    axios.get(`${url}/api/admin/total-in-progress`)
     .then(res=>setPending(res.data.totalInProgress))
   },[])
   return (

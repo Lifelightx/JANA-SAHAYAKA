@@ -5,12 +5,13 @@ import { StoreContext } from "../Context";
 
 const MyComplaint = () => {
   const [complaints, setComplaints] = useState([]);
+  const {token, url} = useContext(StoreContext)
   const [loading, setLoading] = useState(true);
 
   // Fetch complaints when the component mounts
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios.get("http://localhost:5000/api/users/complaints", {
+    axios.get(`${url}/api/users/complaints`, {
       headers: {
         Authorization: `${token}`, // Pass the token for authentication
       },
@@ -26,11 +27,10 @@ const MyComplaint = () => {
     });
   }, []);
 
-  const {token} = useContext(StoreContext)
   const handleDelete = async (id) => {
     const data = {id:id}
     try {
-      await axios.post(`http://localhost:5000/api/users/complaint/delete`,data, {
+      await axios.post(`${url}/api/users/complaint/delete`,data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

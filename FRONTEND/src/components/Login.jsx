@@ -5,7 +5,7 @@ import { StoreContext } from '../Context';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const {setToken} = useContext(StoreContext)
+    const {setToken, url} = useContext(StoreContext)
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         email: '',
@@ -19,7 +19,7 @@ function Login() {
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/api/users/login", formData)
+        axios.post(`${url}/api/users/login`, formData)
             .then(res => {
                 localStorage.setItem("token",res.data.token)
                 console.log(localStorage.getItem("token"))

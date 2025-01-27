@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { StoreContext } from "../Context";
 
 
 const ComplaintForm = () => {
+  const {url }= useContext(StoreContext)
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -58,7 +60,7 @@ const ComplaintForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(token)
-    axios.post("http://localhost:5000/api/users/complaint", formData,
+    axios.post(`${url}/api/users/complaint`, formData,
       {
         headers: { Authorization: `Bearer ${token}` },
 

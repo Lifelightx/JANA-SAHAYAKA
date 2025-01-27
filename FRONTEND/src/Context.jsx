@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 export const StoreContext = createContext()
 
 export const StoreContextProvider = ({children})=>{
-    const url = "http://localhost:5000"
+    const url = "https://jana-sahayaka.onrender.com"
     const [complaints, setComplaints] = useState([]) // Fixed typo in variable name
     const [token, setToken] = useState("")
 
@@ -18,7 +18,8 @@ export const StoreContextProvider = ({children})=>{
 
     const contextValue = {
         token,
-        setToken
+        setToken,
+        url
     }
 
     return(

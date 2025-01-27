@@ -5,14 +5,14 @@ import { FaSearch } from 'react-icons/fa'
 import { formatDistanceToNow } from 'date-fns'
 
 function Home() {
-  const { adminToken } = useContext(StoreContext)
+  const { adminToken, url } = useContext(StoreContext)
   console.log("Token: ", adminToken)
   const [complaints, setComplaints] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedDepartment, setSelectedDepartment] = useState('')
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/admin/complaints", {
+    axios.get(`${url }/api/admin/complaints`, {
       headers: {
         'Authorization': `Bearer ${adminToken}`
       }

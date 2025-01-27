@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import axios from "axios";
+import { StoreContext } from "../Context";
+import { useContext } from "react";
 
 function DistrictWise() {
   const [labels, setLabels] = useState([]); // State for labels
   const [data, setData] = useState([]); // State for data
   const [isLoading, setIsLoading] = useState(true); // Loading state
-
+  
+  const {url }= useContext(StoreContext)
   useEffect(() => {
     const fetchComplaintsData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/admin/dashComplaints"
+          `${url }/api/admin/dashComplaints`
         );
 
         // Extract the assigned department and count occurrences

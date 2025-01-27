@@ -3,7 +3,9 @@ import axios from "axios";
 import { StoreContext } from "../Context";
 import { useNavigate } from "react-router-dom";
 function ComplaintDept() {
-  const { token, dept, setToken } = useContext(StoreContext); // Get token and department from context
+  const { token, dept, setToken } = useContext(StoreContext);
+  const url = "https://jana-sahayaka.onrender.com"
+  // Get token and department from context
   const [complaints, setComplaints] = useState([]); // Store complaints
   const [error, setError] = useState(""); // Error message
   const navigate = useNavigate()
@@ -11,7 +13,7 @@ function ComplaintDept() {
   const getComplaints = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/departments/complaint",
+        `${url}/api/departments/complaint`,
         { departmentId: dept },
         {
           headers: {
@@ -39,7 +41,7 @@ function ComplaintDept() {
   const handleStatusChange = async (complaintId, newStatus) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/departments/complaint/update",
+        `${url}/api/departments/complaint/update`,
         { id: complaintId, status: newStatus },
         {
           headers: {

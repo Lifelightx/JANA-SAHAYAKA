@@ -5,7 +5,7 @@ export const StoreContext = createContext()
 export const StoreContextProvider = ({children})=>{
 
     const [adminToken, SetAdminToken] = useState("")
-
+    const url = "https://jana-sahayaka.onrender.com"
     useEffect(()=>{
         const storedToken = localStorage.getItem("admin_token")
         if(storedToken){
@@ -15,7 +15,8 @@ export const StoreContextProvider = ({children})=>{
 
     const contextVal = {
         adminToken,
-        SetAdminToken
+        SetAdminToken,
+        url
     }
     return(
         <StoreContext.Provider value={contextVal}>

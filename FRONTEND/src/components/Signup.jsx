@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import districtsData from "../assets/districts.json"; // Import your JSON file
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { StoreContext } from "../Context";
 const Signup = () => {
+    const {url }= useContext(StoreContext)
     const [formData, setFormData] = useState({
         aadhaar: "",
         name: "",
@@ -42,7 +44,7 @@ const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
-        axios.post("http://localhost:5000/api/users/register", formData)
+        axios.post(`${url}/api/users/register`, formData)
             .then(res => {
                 toast.success(res.data.message)
                 setTimeout(() => {

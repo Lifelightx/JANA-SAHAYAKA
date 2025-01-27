@@ -3,6 +3,9 @@ import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
 
+import { useContext } from "react";
+import { StoreContext } from "../Context";
+
 // Register required Chart.js components
 Chart.register(ArcElement, Tooltip, Legend);
 
@@ -11,25 +14,25 @@ function BarChartP() {
     const [noOfInprogress, setNoOfInprogress] = useState(0);
     const [noOfResolved, setNoOfResolved] = useState(0);
     const [isLoading, setIsLoading] = useState(true); // Loading state
-
+    const {url} = useContext(StoreContext)
     useEffect(() => {
         const fetchComplaintsData = async () => {
             try {
                 // Fetch total complaints
                 const complaintsResponse = await axios.get(
-                    "http://localhost:5000/api/admin/noOfComplaints"
+                    `${url}/api/admin/noOfComplaints`
                 );
                 setNoOfComplaints(complaintsResponse.data.totalComplaints);
 
                 // Fetch total resolved complaints
                 const resolvedResponse = await axios.get(
-                    "http://localhost:5000/api/admin/total-resolved"
+                    `${url}/api/admin/total-resolved`
                 );
                 setNoOfResolved(resolvedResponse.data.totalResolved);
 
                 // Fetch total in-progress complaints
                 const inProgressResponse = await axios.get(
-                    "http://localhost:5000/api/admin/total-in-progress"
+                    `${url}/api/admin/total-in-progress`
                 );
                 setNoOfInprogress(inProgressResponse.data.totalInProgress);
 

@@ -7,13 +7,13 @@ import { StoreContext } from '../Context';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { SetAdminToken } = useContext(StoreContext)
+  const { SetAdminToken, url } = useContext(StoreContext)
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = { adminId: username, adminPassword: password }
     console.log(formData)
-    axios.post('http://localhost:5000/api/admin/login', formData)
+    axios.post(`${url}/api/admin/login`, formData)
       .then(response => {
         localStorage.setItem("admin_token", response.data.token)
         SetAdminToken(response.data.message)

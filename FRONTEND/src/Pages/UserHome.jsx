@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { StoreContext } from "../Context";
 
 function UserHome() {
     const navigate = useNavigate();
-
+    const {url }= useContext(StoreContext)
     // State to store user details
     const [userDetails, setUserDetails] = useState({
         aadhaar: "",
@@ -27,7 +28,7 @@ function UserHome() {
             navigate("/");
         } else {
             axios
-                .get("http://localhost:5000/api/users/user_info", {
+                .get(`${url}/api/users/user_info`, {
                     headers: { Authorization: `${token}` },
                 })
                 .then((response) => {
