@@ -7,6 +7,7 @@ export const StoreContextProvider = ({children})=>{
     const [complaints, setComplaints] = useState([]) // Fixed typo in variable name
     const [token, setToken] = useState("")
 
+    
     // Move token check to useEffect to avoid infinite re-renders
     useEffect(() => {
         const storedToken = localStorage.getItem("token")

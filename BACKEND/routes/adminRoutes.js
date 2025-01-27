@@ -6,7 +6,9 @@ const router = express.Router();
 
 router.post("/login", loginAdmin); // Admin login route
 router.get("/complaints", protectAdminRoute, getAllComplaints); // Protecting the view all complaints route with middleware
-router.get("/noOfComplaints", getTotalComplaints); // Protecting the view all complaints route with middleware
+router.get("/noOfComplaints", getTotalComplaints);
+router.get("/dashComplaints", getAllComplaints); 
+// Protecting the view all complaints route with middleware
 router.get('/total-resolved', getTotalResolvedComplaints); // Route to get total resolved complaints
 router.get('/total-in-progress', getTotalInProgressComplaints); // Route to get total in-progress complaints
 

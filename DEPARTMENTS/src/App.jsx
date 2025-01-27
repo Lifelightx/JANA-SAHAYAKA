@@ -7,12 +7,12 @@ import { StoreContext } from './Context'
 
 function App() {
   const {token} = useContext(StoreContext)
-  console.log("Token",token)
+  // console.log("Token",token)
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginDepartment/>}/>
-        <Route path='/department' element={<ComplaintDept/>}/>
+        <Route path='/department' element={token?<ComplaintDept/>:<LoginDepartment/>}/>
       </Routes>
     </BrowserRouter>
   )
