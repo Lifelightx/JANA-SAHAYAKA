@@ -25,7 +25,6 @@ function LoginDepartment() {
     })
       .then((response) => {
         if (response.data.message) {
-          console.log("Login successful!");
           
           setDept(formData.departmentId)
           localStorage.setItem("dept_id",formData.departmentId)
