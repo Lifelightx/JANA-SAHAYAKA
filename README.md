@@ -43,6 +43,11 @@ The system aims to simplify the grievance redressal process by enabling citizens
 - File grievances with categories like healthcare, education, and infrastructure.
 - Track complaint statuses and view updates in real time.
 - User authentication for secure and personalized access.
+  
+![WhatsApp Image 2025-01-25 at 15 12 16_f29714d5](https://github.com/user-attachments/assets/28b6f213-96ae-4ce9-b497-91ebe697c5bf)
+![WhatsApp Image 2025-01-25 at 15 13 08_3b1a70e4](https://github.com/user-attachments/assets/0cb5a9f8-67c6-4e59-a7e6-1dec9e53558f)
+![WhatsApp Image 2025-01-25 at 15 14 59_343530d9](https://github.com/user-attachments/assets/5f4547fb-71b1-46f1-b112-4d8fc3e752b8)
+![WhatsApp Image 2025-01-25 at 15 16 23_85aa5437](https://github.com/user-attachments/assets/11c18df0-bd83-400c-a178-cf3f4b5f9ec4)
 
 ### Department Portal
 - Manage assigned complaints and update statuses.
