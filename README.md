@@ -53,9 +53,16 @@ The system aims to simplify the grievance redressal process by enabling citizens
 - Manage assigned complaints and update statuses.
 - Dashboard for active and resolved grievances.
 
+![Dept login](https://github.com/user-attachments/assets/c9999468-9d0e-4eb5-98c1-838ef40e6da3)
+![Dept complaints](https://github.com/user-attachments/assets/5c711188-8567-4a94-8f11-ee065f78e1f7)
+
 ### Admin Portal
 - Analyze complaint trends using Chart.js for visualizations.
 - Generate reports for department efficiency and recurring issues.
+
+![Admin HomePage](https://github.com/user-attachments/assets/1b8c3325-b728-473e-a45c-1c7de881514d)
+![Admin Dashboard](https://github.com/user-attachments/assets/829ead94-6a24-4a3e-9221-3087cd97cb3c)
+
 
 ---
 
